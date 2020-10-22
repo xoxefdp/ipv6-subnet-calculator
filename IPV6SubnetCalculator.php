@@ -46,7 +46,7 @@ class IPV6SubnetCalculator
 			// Count number of parts with a number in it
 			for ($i=0; $i < count($parts); $i++)
 			{
-				if (is_numeric("0x" . $parts[$i]))
+				if (!empty($parts[$i]))
 					$cnt++;
 			}
 
@@ -56,6 +56,30 @@ class IPV6SubnetCalculator
 
 			$unabbv = str_replace("::", str_repeat(":0000", $needed), $unabbv);
 		}	
+
+		$unabbv_parts = explode(":", $unabbv);
+		for ($i=0; $i < count($unabbv_parts); $i++) { 
+			if (strlen($unabbv_parts[$i]) > 4) {
+				$segment = "";
+				$segment_part = str_split($unabbv_parts[$i], 4);
+				for ($f=0; $f < count($segment_part); $f++) {
+					if ($f == 0) {
+						$unabbv_parts[$i] = $segment_part[$f];
+					} else {
+						array_push($unabbv_parts, $segment_part[$f]);
+					}
+				}
+			}
+		}
+
+		$unabbv = "";
+		for ($i=0; $i < count($unabbv_parts); $i++) { 
+			if ($i < count($unabbv_parts)-1) {
+				$unabbv .= $unabbv_parts[$i].":";
+			} else {
+				$unabbv .= $unabbv_parts[$i];
+			}
+		}
 
 		$parts = explode(":", $unabbv);
 		$new   = "";
