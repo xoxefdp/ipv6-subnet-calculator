@@ -1,0 +1,74 @@
+.flex-container {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  height: 30px;
+}
+
+.flex-item {
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  -webkit-align-self: auto;
+  -ms-flex-item-align: auto;
+  align-self: auto;
+  height: 30px;
+}
+.calculator {
+  background-color: #cdcdcd;
+  /* width: 100%;
+	height: 100%; */
+	padding: 10px;
+}
+
+.calculator .header {
+  background-color: lightsteelblue;
+}
+
+.calculator .inputs {
+  background-color: #ccc;
+}
+
+.inputs {
+  margin-bottom: 25px;
+}
+
+.ipv6-address,
+.ipv4-address {
+	padding: 0;
+  width: 260px;
+}
+
+.prefix-len {
+	padding: 0;
+	width: 50px;
+}
+
+.results {
+	padding: 10px;
+  background-color: white;
+  border: 2px dotted black;
+}
+
+.results-text {
+	margin-block-start: 0;
+	margin-block-end: 0;
+}
